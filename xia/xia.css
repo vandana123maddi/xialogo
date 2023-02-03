@@ -1,0 +1,106 @@
+$background-color: #ea6203;
+$text-color: #fff;
+$logo-size: 300px;
+
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%content-absolute {
+  content: "";
+  position: absolute;
+  background-color: $background-color;
+}
+
+%circle-half {
+  @extend %content-absolute;
+  width: 40%;
+  height: 286px;
+  z-index: 0;
+}
+
+body {
+  @extend %flex-center;
+  padding-top: 50px;
+}
+
+.xiaomi-logo {
+  @extend %flex-center;
+  width: $logo-size;
+  height: $logo-size;
+  position: relative;
+
+  &::before {
+    @extend %content-absolute;
+    width: 260px;
+    height: 280px;
+    border-radius: 110px / 71px;
+  }
+
+  &::after {
+    @extend %content-absolute;
+    width: 280px;
+    height: 206px;
+    border-radius: 21% / 100%;
+  }
+
+  .circle-left {
+    @extend %circle-half;
+    top: 7px;
+    left: 10%;
+    bottom: 0;
+    border-top-left-radius: 120% 4em;
+    border-bottom-left-radius: 120% 4em;
+  }
+
+  .circle-right {
+    @extend %circle-half;
+    top: 7px;
+    bottom: 0;
+    right: 10%;
+    border-top-right-radius: 120% 4em;
+    border-bottom-right-radius: 120% 4em;
+  }
+
+  > div {
+    position: relative;
+    background-color: $text-color;
+    z-index: 1;
+  }
+
+  .m-text {
+    width: 120px;
+    height: 107px;
+    border-radius: 0 30px 0 0;
+    left: -12px;
+
+    &::before {
+      @extend %content-absolute;
+      width: 65px;
+      height: 85px;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+      border-radius: 0 15px 0 0;
+    }
+
+    &::after {
+      @extend %content-absolute;
+      width: 25px;
+      height: 67px;
+      background-color: $text-color;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+    }
+  }
+  .i-text {
+    width: 25px;
+    height: 105px;
+    right: -9px;
+  }
+}
